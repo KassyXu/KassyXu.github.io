@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jiangyu Zeng - Personal Website</title>
     <style>
+        :root {
+            /* Light mode colors */
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f8f9fa;
+            --text-primary: #333;
+            --text-secondary: #6c757d;
+            --text-muted: #495057;
+            --header-gradient: linear-gradient(135deg, #304263 0%, #4a6381 100%);
+            --border-color: #e9ecef;
+            --shadow: rgba(0,0,0,0.1);
+            --shadow-hover: rgba(0,0,0,0.15);
+        }
+
+        [data-theme="dark"] {
+            /* Dark mode colors */
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --bg-tertiary: #3a3a3a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --text-muted: #888888;
+            --header-gradient: linear-gradient(135deg, #1e2a3a 0%, #2c3e50 100%);
+            --border-color: #444444;
+            --shadow: rgba(0,0,0,0.3);
+            --shadow-hover: rgba(0,0,0,0.4);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +42,9 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -25,10 +54,11 @@
         }
 
         header {
-            background: linear-gradient(135deg, #304263 0%, #4a6381 100%);
+            background: var(--header-gradient);
             color: white;
             padding: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px var(--shadow);
+            position: relative;
         }
 
         .header-content {
@@ -82,13 +112,40 @@
             font-size: 0.9rem;
         }
 
+        .dark-mode-toggle {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            color: white;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dark-mode-toggle:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        .dark-mode-toggle .icon {
+            font-size: 1.2rem;
+        }
+
         nav {
-            background: white;
+            background: var(--bg-secondary);
             padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px var(--shadow);
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: background-color 0.3s ease;
         }
 
         nav ul {
@@ -100,7 +157,7 @@
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-primary);
             font-weight: 500;
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -117,19 +174,21 @@
         }
 
         .section {
-            background: white;
+            background: var(--bg-secondary);
             margin-bottom: 2rem;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px var(--shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .section h2 {
             color: #304263;
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            border-bottom: 2px solid #e9ecef;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 0.5rem;
+            transition: border-color 0.3s ease;
         }
 
         .about-grid {
@@ -145,13 +204,14 @@
         }
 
         .research-interests {
-            background: #f8f9fa;
+            background: var(--bg-tertiary);
             padding: 1.5rem;
             border-radius: 8px;
+            transition: background-color 0.3s ease;
         }
 
         .research-interests h3 {
-            color: #495057;
+            color: var(--text-muted);
             margin-bottom: 1rem;
         }
 
@@ -161,7 +221,7 @@
 
         .research-interests li {
             padding: 0.3rem 0;
-            color: #6c757d;
+            color: var(--text-secondary);
         }
 
         .research-interests li:before {
@@ -173,13 +233,14 @@
         .education-item, .experience-item, .publication-item {
             margin-bottom: 1.5rem;
             padding: 1.5rem;
-            background: #f8f9fa;
+            background: var(--bg-tertiary);
             border-radius: 8px;
             border-left: 4px solid #304263;
+            transition: background-color 0.3s ease;
         }
 
         .education-item h3, .experience-item h3 {
-            color: #333;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
@@ -190,7 +251,7 @@
         }
 
         .date {
-            color: #6c757d;
+            color: var(--text-secondary);
             font-style: italic;
             margin-bottom: 0.5rem;
         }
@@ -202,13 +263,13 @@
         }
 
         .publication-item h4 {
-            color: #333;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
             line-height: 1.4;
         }
 
         .authors {
-            color: #6c757d;
+            color: var(--text-secondary);
             margin-bottom: 0.3rem;
         }
 
@@ -245,13 +306,14 @@
         }
 
         .skill-category {
-            background: #f8f9fa;
+            background: var(--bg-tertiary);
             padding: 1.5rem;
             border-radius: 8px;
+            transition: background-color 0.3s ease;
         }
 
         .skill-category h3 {
-            color: #495057;
+            color: var(--text-muted);
             margin-bottom: 1rem;
         }
 
@@ -274,8 +336,9 @@
             align-items: center;
             margin-bottom: 0.8rem;
             padding: 0.8rem;
-            background: #f8f9fa;
+            background: var(--bg-tertiary);
             border-radius: 6px;
+            transition: background-color 0.3s ease;
         }
 
         .achievement-item:before {
@@ -292,15 +355,16 @@
         }
 
         .gallery-item {
-            background: #f8f9fa;
+            background: var(--bg-tertiary);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery-item:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-hover);
         }
 
         .gallery-item img {
@@ -319,7 +383,7 @@
         }
 
         .gallery-caption p {
-            color: #6c757d;
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
 
@@ -329,6 +393,11 @@
             text-align: center;
             padding: 2rem 0;
             margin-top: 3rem;
+        }
+
+        [data-theme="dark"] footer {
+            background: #1a1a1a;
+            border-top: 1px solid var(--border-color);
         }
 
         .social-links {
@@ -364,6 +433,12 @@
                 font-size: 2rem;
             }
 
+            .dark-mode-toggle {
+                position: static;
+                margin-top: 1rem;
+                align-self: center;
+            }
+
             nav ul {
                 flex-direction: column;
                 gap: 0.5rem;
@@ -396,6 +471,10 @@
                     </div>
                 </div>
             </div>
+            <button class="dark-mode-toggle" id="darkModeToggle">
+                <span class="icon">🌙</span>
+                <span class="text">Dark Mode</span>
+            </button>
         </div>
     </header>
 
@@ -687,6 +766,66 @@
     </footer>
 
     <script>
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        let isDarkMode = false;
+
+        // Initialize theme
+        function initializeTheme() {
+            // Check for saved theme preference or default to light mode
+            const savedTheme = getCookie('theme');
+            if (savedTheme === 'dark') {
+                enableDarkMode();
+            } else {
+                enableLightMode();
+            }
+        }
+
+        function enableDarkMode() {
+            body.setAttribute('data-theme', 'dark');
+            darkModeToggle.innerHTML = '<span class="icon">☀️</span><span class="text">Light Mode</span>';
+            isDarkMode = true;
+            setCookie('theme', 'dark', 365);
+        }
+
+        function enableLightMode() {
+            body.removeAttribute('data-theme');
+            darkModeToggle.innerHTML = '<span class="icon">🌙</span><span class="text">Dark Mode</span>';
+            isDarkMode = false;
+            setCookie('theme', 'light', 365);
+        }
+
+        // Simple cookie functions (alternative to localStorage)
+        function setCookie(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', () => {
+            if (isDarkMode) {
+                enableLightMode();
+            } else {
+                enableDarkMode();
+            }
+        });
+
+        // Initialize theme on page load
+        initializeTheme();
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
