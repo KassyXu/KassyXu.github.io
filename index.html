@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiangyu Zeng - Personal Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #304263 0%, #4a6381 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-text .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .header-text .contact-info {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: #304263;
+            color: white;
+        }
+
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #304263;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .research-interests {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .research-interests h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        .research-interests ul {
+            list-style: none;
+        }
+
+        .research-interests li {
+            padding: 0.3rem 0;
+            color: #6c757d;
+        }
+
+        .research-interests li:before {
+            content: "▸ ";
+            color: #304263;
+            font-weight: bold;
+        }
+
+        .education-item, .experience-item, .publication-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #304263;
+        }
+
+        .education-item h3, .experience-item h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .institution {
+            color: #304263;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .date {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .gpa {
+            color: #28a745;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .publication-item h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .authors {
+            color: #6c757d;
+            margin-bottom: 0.3rem;
+        }
+
+        .venue {
+            color: #304263;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .publication-links {
+            margin-top: 0.5rem;
+        }
+
+        .publication-links a {
+            display: inline-block;
+            background: #304263;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .publication-links a:hover {
+            background: #253550;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .skill-category h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #304263;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .achievement-item:before {
+            content: "🏆";
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+        }
+
+        .gallery-caption h4 {
+            color: #304263;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-caption p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
+            }
+
+            .header-text h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img">
+                    <img src="assets/images/jiangyu-profile.jpg" alt="Jiangyu Zeng" onerror="this.style.display='none'; this.parentElement.innerHTML='JZ';">
+                </div>
+                <div class="header-text">
+                    <h1>Jiangyu Zeng</h1>
+                    <div class="title">PhD Candidate in Civil Engineering</div>
+                    <div class="contact-info">
+                        <span>📧 jiangyu1@ualberta.ca</span>
+                        <span>📱 +1 (204) 869-7738</span>
+                        <span>📍 Edmonton, Alberta</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="about" class="section">
+                <h2>About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Welcome to my personal website! I am Jiangyu Zeng, a PhD candidate in the Department of Civil Engineering at the University of Alberta. My research focuses on developing innovative approaches to structural health monitoring using crowdsensing technologies and big data analytics.</p>
+                        
+                        <p>I am currently working on my doctoral dissertation titled "A Crowdsensing-Enabled Population-Based Structural Health Monitoring (CE-PBSHM) Framework Using Drive-by Measurements." This research aims to develop a scalable model for simultaneous multi-bridge monitoring, representing a significant advancement in infrastructure monitoring technologies.</p>
+                        
+                        <p>My work combines traditional civil engineering principles with cutting-edge technologies including machine learning, computer vision, and big data analytics to create more efficient and comprehensive infrastructure monitoring solutions.</p>
+                    </div>
+                    <div class="research-interests">
+                        <h3>Research Interests</h3>
+                        <ul>
+                            <li>Structural Health Monitoring</li>
+                            <li>Crowdsensing Technologies</li>
+                            <li>Machine Learning Applications</li>
+                            <li>Computer Vision</li>
+                            <li>Big Data Analytics</li>
+                            <li>Infrastructure Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="section">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Ph.D. in Civil Engineering</h3>
+                    <div class="institution">University of Alberta</div>
+                    <div class="date">January 2022 – April 2026 (Expected)</div>
+                    <div class="gpa">CGPA: 3.85/4.00</div>
+                    <p><strong>Candidacy Exam Completed:</strong> "A Crowdsensing-Enabled Population-Based Structural Health Monitoring (CE-PBSHM) Framework Using Drive-by Measurements"</p>
+                </div>
+                <div class="education-item">
+                    <h3>M.Sc. in Civil Engineering</h3>
+                    <div class="institution">University of Alberta</div>
+                    <div class="date">January 2020 – December 2022</div>
+                    <p>Focus on imaging-based analysis and computer vision applications in civil engineering</p>
+                </div>
+                <div class="education-item">
+                    <h3>B.Sc. in Civil Engineering</h3>
+                    <div class="institution">University of Manitoba</div>
+                    <div class="date">September 2015 – June 2019</div>
+                    <div class="gpa">CGPA: 3.70/4.50</div>
+                    <p>Developed foundational knowledge in civil engineering with early exposure to research through undergraduate research assistantship</p>
+                </div>
+            </section>
+
+            <section id="research" class="section">
+                <h2>Research Experience</h2>
+                <div class="experience-item">
+                    <h3>PhD Research: Crowdsensing-Based Structural Health Monitoring</h3>
+                    <div class="institution">University of Alberta</div>
+                    <div class="date">January 2022 – Present</div>
+                    <p>Developing a scalable model for simultaneous multi-bridge monitoring using crowdsensing and big data analytics. This research represents a paradigm shift from traditional single-structure monitoring to population-based infrastructure assessment.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>M.Sc. & Undergraduate Research: Imaging-Based Analysis and Computer Vision</h3>
+                    <div class="institution">University of Alberta & University of Manitoba</div>
+                    <div class="date">September 2015 – December 2022</div>
+                    <p>Developed and applied machine learning and computer vision techniques for infrastructure monitoring, including pavement condition assessment and crack detection in concrete structures.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Lab Safety Associate</h3>
+                    <div class="institution">University of Alberta</div>
+                    <div class="date">January 2024 – June 2025</div>
+                    <p>Ensured lab safety and protocol compliance during structural health monitoring experiments, managing laboratory equipment and coordinating experimental activities.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Research Assistant</h3>
+                    <div class="institution">University of Manitoba</div>
+                    <div class="date">Spring/Summer 2018</div>
+                    <p>Assisted in developing machine learning models to improve the accuracy of structural health assessments, gaining early experience in applying computational methods to civil engineering problems.</p>
+                </div>
+            </section>
+
+            <section id="publications" class="section">
+                <h2>Publications</h2>
+                <div class="publication-item">
+                    <h4>Multi-Bridge Inference Structural Health Monitoring (MISHM): A Drive-By Crowdsensing Approach at the Network Level</h4>
+                    <div class="authors">J. Zeng, Q. Mei, and M. Gül</div>
+                    <div class="venue">Submitted to Structural Health Monitoring, 2025</div>
+                    <p>This paper presents a novel framework for monitoring multiple bridges simultaneously using crowdsensing technologies and drive-by measurements.</p>
+                </div>
+                <div class="publication-item">
+                    <h4>Multi-Bridge Indirect Structural Health Monitoring: Leveraging Big Data and Drive-By Crowdsensing Techniques</h4>
+                    <div class="authors">J. Zeng, Q. Mei, and M. Gül</div>
+                    <div class="venue">Topics in Modal Analysis & Parameter Identification, Vol. 9, Conference Proceedings of the Society for Experimental Mechanics Series</div>
+                    <p>Conference proceedings paper discussing the application of big data techniques in bridge monitoring using indirect measurement approaches.</p>
+                </div>
+                <div class="publication-item">
+                    <h4>An imaging-based artificial neural network method to identify the international roughness index of highway pavements</h4>
+                    <div class="authors">J. Zeng, M. Gül, Q. Mei</div>
+                    <div class="venue">Journal of Infrastructure Intelligence and Resilience, Volume 1, Issue 1, 2022</div>
+                    <p>This study presents a novel approach to assess pavement roughness using imaging techniques and artificial neural networks.</p>
+                </div>
+                <div class="publication-item">
+                    <h4>Deep learning-based crack detection in a concrete tunnel structure using multispectral dynamic imaging</h4>
+                    <div class="authors">R. Ali, J. Zeng, Y. J. Cha</div>
+                    <div class="venue">Proc. SPIE 11382, Smart Structures and NDE for Industry 4.0, 2020</div>
+                    <p>Application of deep learning techniques for automated crack detection in concrete tunnel structures using advanced imaging methods.</p>
+                </div>
+                <div class="publication-item">
+                    <h4>Heat loss detection using thermal imaging by a small UAV prototype</h4>
+                    <div class="authors">R. Ali, J. Zeng, M. Kavgic, Y. J. Cha</div>
+                    <div class="venue">Proc. SPIE 11382, Smart Structures and NDE for Industry 4.0, 2020</div>
+                    <p>Investigation of thermal imaging applications using unmanned aerial vehicles for building energy efficiency assessment.</p>
+                </div>
+            </section>
+
+            <section id="teaching" class="section">
+                <h2>Teaching Experience</h2>
+                <div class="experience-item">
+                    <h3>Teaching Assistant</h3>
+                    <div class="institution">Department of Civil Engineering, University of Alberta</div>
+                    <div class="date">September 2020 – Present</div>
+                    <p><strong>Courses:</strong> Civ E 130 (Present), Civ E 270, Civ E 265, Civ E 398, Civ E 779</p>
+                    <p>Assisted with various undergraduate and graduate courses, providing student support, grading assignments, and conducting tutorial sessions.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Lab Instructor</h3>
+                    <div class="institution">Department of Civil Engineering, University of Alberta</div>
+                    <div class="date">January 2021 – Present</div>
+                    <p><strong>Course:</strong> Civ E 270 - Mechanics of Deformable Bodies</p>
+                    <p>Conducted laboratory sessions, demonstrating the practical applications of theoretical concepts in mechanics of materials and structural analysis.</p>
+                </div>
+            </section>
+
+            <section id="gallery" class="section">
+                <h2>Photo Gallery</h2>
+                <p>A collection of photos from my teaching, research, and conference activities.</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="assets/images/teaching-lecture.jpg" alt="Teaching Linear Algebra">
+                        <div class="gallery-caption">
+                            <h4>Teaching Linear Algebra</h4>
+                            <p>Presenting matrix determinants and invertibility concepts to undergraduate students.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/teaching-classroom.jpg" alt="Classroom Lecture">
+                        <div class="gallery-caption">
+                            <h4>Classroom Instruction</h4>
+                            <p>Engaging with students during a mathematics lecture at University of Alberta.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/lab-assistance.jpg" alt="Lab Instruction">
+                        <div class="gallery-caption">
+                            <h4>Laboratory Instruction</h4>
+                            <p>Providing hands-on guidance to students during engineering lab sessions.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/conference-presentation.jpg" alt="Conference Presentation">
+                        <div class="gallery-caption">
+                            <h4>Research Presentation</h4>
+                            <p>Presenting research findings at an academic conference on structural health monitoring.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="achievements" class="section">
+                <h2>Achievements & Awards</h2>
+                <div class="achievement-item">
+                    Alberta Innovates Graduate Student Scholarship (2024-2025)
+                </div>
+                <div class="achievement-item">
+                    Graduate Research Award, University of Alberta (2024)
+                </div>
+                <div class="achievement-item">
+                    Graduate Teaching Awards, University of Alberta (2021-2023)
+                </div>
+                <div class="achievement-item">
+                    China Scholarship Council Scholarship (2022-2025)
+                </div>
+                <div class="achievement-item">
+                    International Undergraduate Student Scholarship, University of Manitoba (2016-2019)
+                </div>
+            </section>
+
+            <section id="skills" class="section">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">MATLAB</span>
+                            <span class="skill-tag">Visual Basic</span>
+                            <span class="skill-tag">LaTeX</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Engineering Software</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AutoCAD</span>
+                            <span class="skill-tag">Abaqus</span>
+                            <span class="skill-tag">Geoslope</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Data Analysis & ML</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Big Data Analysis</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Computer Vision</span>
+                            <span class="skill-tag">Signal Processing</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Research Areas</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Structural Health Monitoring</span>
+                            <span class="skill-tag">Crowdsensing</span>
+                            <span class="skill-tag">Infrastructure Management</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>Contact Information</h2>
+                <div class="about-grid">
+                    <div>
+                        <h3>Office Address</h3>
+                        <p>Department of Civil Engineering<br>
+                        University of Alberta<br>
+                        Edmonton, Alberta<br>
+                        Canada</p>
+
+                        <h3 style="margin-top: 2rem;">Email</h3>
+                        <p>jiangyu1@ualberta.ca</p>
+
+                        <h3 style="margin-top: 2rem;">Phone</h3>
+                        <p>+1 (204) 869-7738</p>
+                    </div>
+                    <div>
+                        <h3>Professional Activities</h3>
+                        <p><strong>Volunteer Experience:</strong></p>
+                        <ul style="margin-top: 1rem;">
+                            <li>Orientation Ceremony Volunteer, Civil Engineering, University of Alberta (September 2023)</li>
+                            <li>Mentor, Mentor and Mentee Program, University of Manitoba (2018 Academic Year)</li>
+                        </ul>
+                        
+                        <h3 style="margin-top: 2rem;">Research Collaborations</h3>
+                        <p>Active collaboration with interdisciplinary teams integrating crowdsensing technologies with traditional structural monitoring approaches.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Jiangyu Zeng. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:jiangyu1@ualberta.ca">Email</a>
+                <a href="#">Google Scholar</a>
+                <a href="#">ResearchGate</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Update active nav item
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Update active nav item on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.pageYOffset >= sectionTop) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
