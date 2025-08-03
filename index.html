@@ -112,10 +112,15 @@
             font-size: 0.9rem;
         }
 
-        .dark-mode-toggle {
+        .header-controls {
             position: absolute;
             top: 2rem;
             right: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .dark-mode-toggle, .language-toggle {
             background: rgba(255,255,255,0.2);
             border: 2px solid rgba(255,255,255,0.3);
             border-radius: 50px;
@@ -129,12 +134,12 @@
             gap: 0.5rem;
         }
 
-        .dark-mode-toggle:hover {
+        .dark-mode-toggle:hover, .language-toggle:hover {
             background: rgba(255,255,255,0.3);
             transform: scale(1.05);
         }
 
-        .dark-mode-toggle .icon {
+        .dark-mode-toggle .icon, .language-toggle .icon {
             font-size: 1.2rem;
         }
 
@@ -433,10 +438,12 @@
                 font-size: 2rem;
             }
 
-            .dark-mode-toggle {
+            .header-controls {
                 position: static;
                 margin-top: 1rem;
                 align-self: center;
+                flex-direction: column;
+                gap: 0.5rem;
             }
 
             nav ul {
@@ -463,33 +470,39 @@
                 </div>
                 <div class="header-text">
                     <h1>Jiangyu Zeng</h1>
-                    <div class="title">PhD Candidate in Civil Engineering</div>
+                    <div class="title" data-en="PhD Candidate in Civil Engineering" data-zh="土木工程博士研究生">PhD Candidate in Civil Engineering</div>
                     <div class="contact-info">
                         <span>📧 jiangyu1@ualberta.ca</span>
                         <span>📱 +1 (204) 869-7738</span>
-                        <span>📍 Edmonton, Alberta</span>
+                        <span data-en="📍 Edmonton, Alberta" data-zh="📍 阿尔伯塔省埃德蒙顿">📍 Edmonton, Alberta</span>
                     </div>
                 </div>
             </div>
-            <button class="dark-mode-toggle" id="darkModeToggle">
-                <span class="icon">🌙</span>
-                <span class="text">Dark Mode</span>
-            </button>
+            <div class="header-controls">
+                <button class="language-toggle" id="languageToggle">
+                    <span class="icon">🌐</span>
+                    <span class="text">中文</span>
+                </button>
+                <button class="dark-mode-toggle" id="darkModeToggle">
+                    <span class="icon">🌙</span>
+                    <span class="text" data-en="Dark Mode" data-zh="深色模式">Dark Mode</span>
+                </button>
+            </div>
         </div>
     </header>
 
     <nav>
         <div class="container">
             <ul>
-                <li><a href="#about" class="active">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#teaching">Teaching</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" class="active" data-en="About" data-zh="关于我">About</a></li>
+                <li><a href="#education" data-en="Education" data-zh="教育背景">Education</a></li>
+                <li><a href="#research" data-en="Research" data-zh="研究经历">Research</a></li>
+                <li><a href="#publications" data-en="Publications" data-zh="学术发表">Publications</a></li>
+                <li><a href="#teaching" data-en="Teaching" data-zh="教学经历">Teaching</a></li>
+                <li><a href="#gallery" data-en="Gallery" data-zh="图片展示">Gallery</a></li>
+                <li><a href="#achievements" data-en="Achievements" data-zh="荣誉奖项">Achievements</a></li>
+                <li><a href="#skills" data-en="Skills" data-zh="技能专长">Skills</a></li>
+                <li><a href="#contact" data-en="Contact" data-zh="联系方式">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -497,192 +510,192 @@
     <main>
         <div class="container">
             <section id="about" class="section">
-                <h2>About Me</h2>
+                <h2 data-en="About Me" data-zh="关于我">About Me</h2>
                 <div class="about-grid">
                     <div class="about-text">
-                        <p>Welcome to my personal website! I am Jiangyu Zeng, a PhD candidate in the Department of Civil Engineering at the University of Alberta. My research focuses on developing innovative approaches to structural health monitoring using crowdsensing technologies and big data analytics.</p>
+                        <p data-en="Welcome to my personal website! I am Jiangyu Zeng, a PhD candidate in the Department of Civil Engineering at the University of Alberta. My research focuses on developing innovative approaches to structural health monitoring using crowdsensing technologies and big data analytics." data-zh="欢迎访问我的个人网站！我是曾江雨，阿尔伯塔大学土木工程系的博士研究生。我的研究专注于利用群体感知技术和大数据分析开发创新的结构健康监测方法。">Welcome to my personal website! I am Jiangyu Zeng, a PhD candidate in the Department of Civil Engineering at the University of Alberta. My research focuses on developing innovative approaches to structural health monitoring using crowdsensing technologies and big data analytics.</p>
                         
-                        <p>I am currently working on my doctoral dissertation titled "A Crowdsensing-Enabled Population-Based Structural Health Monitoring (CE-PBSHM) Framework Using Drive-by Measurements." This research aims to develop a scalable model for simultaneous multi-bridge monitoring, representing a significant advancement in infrastructure monitoring technologies.</p>
+                        <p data-en="I am currently working on my doctoral dissertation titled \"A Crowdsensing-Enabled Population-Based Structural Health Monitoring (CE-PBSHM) Framework Using Drive-by Measurements.\" This research aims to develop a scalable model for simultaneous multi-bridge monitoring, representing a significant advancement in infrastructure monitoring technologies." data-zh="我目前正在撰写我的博士论文，题目为"基于群体感知的结构健康监测框架：利用过车测量技术"。这项研究旨在开发可扩展的多桥梁同时监测模型，代表了基础设施监测技术的重大进步。">I am currently working on my doctoral dissertation titled "A Crowdsensing-Enabled Population-Based Structural Health Monitoring (CE-PBSHM) Framework Using Drive-by Measurements." This research aims to develop a scalable model for simultaneous multi-bridge monitoring, representing a significant advancement in infrastructure monitoring technologies.</p>
                         
-                        <p>My work combines traditional civil engineering principles with cutting-edge technologies including machine learning, computer vision, and big data analytics to create more efficient and comprehensive infrastructure monitoring solutions.</p>
+                        <p data-en="My work combines traditional civil engineering principles with cutting-edge technologies including machine learning, computer vision, and big data analytics to create more efficient and comprehensive infrastructure monitoring solutions." data-zh="我的工作将传统土木工程原理与机器学习、计算机视觉和大数据分析等前沿技术相结合，创造更高效、更全面的基础设施监测解决方案。">My work combines traditional civil engineering principles with cutting-edge technologies including machine learning, computer vision, and big data analytics to create more efficient and comprehensive infrastructure monitoring solutions.</p>
                     </div>
                     <div class="research-interests">
-                        <h3>Research Interests</h3>
+                        <h3 data-en="Research Interests" data-zh="研究兴趣">Research Interests</h3>
                         <ul>
-                            <li>Structural Health Monitoring</li>
-                            <li>Crowdsensing Technologies</li>
-                            <li>Machine Learning Applications</li>
-                            <li>Computer Vision</li>
-                            <li>Big Data Analytics</li>
-                            <li>Infrastructure Management</li>
+                            <li data-en="Structural Health Monitoring" data-zh="结构健康监测">Structural Health Monitoring</li>
+                            <li data-en="Crowdsensing Technologies" data-zh="群体感知技术">Crowdsensing Technologies</li>
+                            <li data-en="Machine Learning Applications" data-zh="机器学习应用">Machine Learning Applications</li>
+                            <li data-en="Computer Vision" data-zh="计算机视觉">Computer Vision</li>
+                            <li data-en="Big Data Analytics" data-zh="大数据分析">Big Data Analytics</li>
+                            <li data-en="Infrastructure Management" data-zh="基础设施管理">Infrastructure Management</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
             <section id="education" class="section">
-                <h2>Education</h2>
+                <h2 data-en="Education" data-zh="教育背景">Education</h2>
                 <div class="education-item">
-                    <h3>Ph.D. in Civil Engineering</h3>
-                    <div class="institution">University of Alberta</div>
-                    <div class="date">January 2022 – April 2026 (Expected)</div>
+                    <h3 data-en="Ph.D. in Civil Engineering" data-zh="土木工程博士">Ph.D. in Civil Engineering</h3>
+                    <div class="institution" data-en="University of Alberta" data-zh="阿尔伯塔大学">University of Alberta</div>
+                    <div class="date" data-en="January 2022 – April 2026 (Expected)" data-zh="2022年1月 – 2026年4月（预期）">January 2022 – April 2026 (Expected)</div>
                     <div class="gpa">CGPA: 3.85/4.00</div>
-                    <p><strong>Candidacy Exam Completed:</strong> "A Crowdsensing-Enabled Population-Based Structural Health Monitoring (CE-PBSHM) Framework Using Drive-by Measurements"</p>
+                    <p><strong data-en="Candidacy Exam Completed:" data-zh="博士候选人资格考试已通过：">Candidacy Exam Completed:</strong> <span data-en="\"A Crowdsensing-Enabled Population-Based Structural Health Monitoring (CE-PBSHM) Framework Using Drive-by Measurements\"" data-zh=""基于群体感知的结构健康监测框架：利用过车测量技术"">"A Crowdsensing-Enabled Population-Based Structural Health Monitoring (CE-PBSHM) Framework Using Drive-by Measurements"</span></p>
                 </div>
                 <div class="education-item">
-                    <h3>M.Sc. in Civil Engineering</h3>
-                    <div class="institution">University of Alberta</div>
-                    <div class="date">January 2020 – December 2022</div>
-                    <p>Focus on imaging-based analysis and computer vision applications in civil engineering</p>
+                    <h3 data-en="M.Sc. in Civil Engineering" data-zh="土木工程硕士">M.Sc. in Civil Engineering</h3>
+                    <div class="institution" data-en="University of Alberta" data-zh="阿尔伯塔大学">University of Alberta</div>
+                    <div class="date" data-en="January 2020 – December 2022" data-zh="2020年1月 – 2022年12月">January 2020 – December 2022</div>
+                    <p data-en="Focus on imaging-based analysis and computer vision applications in civil engineering" data-zh="专注于土木工程中基于图像的分析和计算机视觉应用">Focus on imaging-based analysis and computer vision applications in civil engineering</p>
                 </div>
                 <div class="education-item">
-                    <h3>B.Sc. in Civil Engineering</h3>
-                    <div class="institution">University of Manitoba</div>
-                    <div class="date">September 2015 – June 2019</div>
+                    <h3 data-en="B.Sc. in Civil Engineering" data-zh="土木工程学士">B.Sc. in Civil Engineering</h3>
+                    <div class="institution" data-en="University of Manitoba" data-zh="曼尼托巴大学">University of Manitoba</div>
+                    <div class="date" data-en="September 2015 – June 2019" data-zh="2015年9月 – 2019年6月">September 2015 – June 2019</div>
                     <div class="gpa">CGPA: 3.70/4.50</div>
-                    <p>Developed foundational knowledge in civil engineering with early exposure to research through undergraduate research assistantship</p>
+                    <p data-en="Developed foundational knowledge in civil engineering with early exposure to research through undergraduate research assistantship" data-zh="通过本科研究助理工作，建立了土木工程基础知识并早期接触科研">Developed foundational knowledge in civil engineering with early exposure to research through undergraduate research assistantship</p>
                 </div>
             </section>
 
             <section id="research" class="section">
-                <h2>Research Experience</h2>
+                <h2 data-en="Research Experience" data-zh="研究经历">Research Experience</h2>
                 <div class="experience-item">
-                    <h3>PhD Research: Crowdsensing-Based Structural Health Monitoring</h3>
-                    <div class="institution">University of Alberta</div>
-                    <div class="date">January 2022 – Present</div>
-                    <p>Developing a scalable model for simultaneous multi-bridge monitoring using crowdsensing and big data analytics. This research represents a paradigm shift from traditional single-structure monitoring to population-based infrastructure assessment.</p>
+                    <h3 data-en="PhD Research: Crowdsensing-Based Structural Health Monitoring" data-zh="博士研究：基于群体感知的结构健康监测">PhD Research: Crowdsensing-Based Structural Health Monitoring</h3>
+                    <div class="institution" data-en="University of Alberta" data-zh="阿尔伯塔大学">University of Alberta</div>
+                    <div class="date" data-en="January 2022 – Present" data-zh="2022年1月 – 至今">January 2022 – Present</div>
+                    <p data-en="Developing a scalable model for simultaneous multi-bridge monitoring using crowdsensing and big data analytics. This research represents a paradigm shift from traditional single-structure monitoring to population-based infrastructure assessment." data-zh="利用群体感知和大数据分析开发可扩展的多桥梁同时监测模型。这项研究代表了从传统单一结构监测向基于群体的基础设施评估的范式转变。">Developing a scalable model for simultaneous multi-bridge monitoring using crowdsensing and big data analytics. This research represents a paradigm shift from traditional single-structure monitoring to population-based infrastructure assessment.</p>
                 </div>
                 <div class="experience-item">
-                    <h3>M.Sc. & Undergraduate Research: Imaging-Based Analysis and Computer Vision</h3>
-                    <div class="institution">University of Alberta & University of Manitoba</div>
-                    <div class="date">September 2015 – December 2022</div>
-                    <p>Developed and applied machine learning and computer vision techniques for infrastructure monitoring, including pavement condition assessment and crack detection in concrete structures.</p>
+                    <h3 data-en="M.Sc. & Undergraduate Research: Imaging-Based Analysis and Computer Vision" data-zh="硕士及本科研究：基于图像的分析和计算机视觉">M.Sc. & Undergraduate Research: Imaging-Based Analysis and Computer Vision</h3>
+                    <div class="institution" data-en="University of Alberta & University of Manitoba" data-zh="阿尔伯塔大学及曼尼托巴大学">University of Alberta & University of Manitoba</div>
+                    <div class="date" data-en="September 2015 – December 2022" data-zh="2015年9月 – 2022年12月">September 2015 – December 2022</div>
+                    <p data-en="Developed and applied machine learning and computer vision techniques for infrastructure monitoring, including pavement condition assessment and crack detection in concrete structures." data-zh="开发并应用机器学习和计算机视觉技术进行基础设施监测，包括路面状况评估和混凝土结构裂缝检测。">Developed and applied machine learning and computer vision techniques for infrastructure monitoring, including pavement condition assessment and crack detection in concrete structures.</p>
                 </div>
                 <div class="experience-item">
-                    <h3>Lab Safety Associate</h3>
-                    <div class="institution">University of Alberta</div>
-                    <div class="date">January 2024 – June 2025</div>
-                    <p>Ensured lab safety and protocol compliance during structural health monitoring experiments, managing laboratory equipment and coordinating experimental activities.</p>
+                    <h3 data-en="Lab Safety Associate" data-zh="实验室安全管理员">Lab Safety Associate</h3>
+                    <div class="institution" data-en="University of Alberta" data-zh="阿尔伯塔大学">University of Alberta</div>
+                    <div class="date" data-en="January 2024 – June 2025" data-zh="2024年1月 – 2025年6月">January 2024 – June 2025</div>
+                    <p data-en="Ensured lab safety and protocol compliance during structural health monitoring experiments, managing laboratory equipment and coordinating experimental activities." data-zh="确保结构健康监测实验期间的实验室安全和协议合规性，管理实验室设备并协调实验活动。">Ensured lab safety and protocol compliance during structural health monitoring experiments, managing laboratory equipment and coordinating experimental activities.</p>
                 </div>
                 <div class="experience-item">
-                    <h3>Research Assistant</h3>
-                    <div class="institution">University of Manitoba</div>
-                    <div class="date">Spring/Summer 2018</div>
-                    <p>Assisted in developing machine learning models to improve the accuracy of structural health assessments, gaining early experience in applying computational methods to civil engineering problems.</p>
+                    <h3 data-en="Research Assistant" data-zh="研究助理">Research Assistant</h3>
+                    <div class="institution" data-en="University of Manitoba" data-zh="曼尼托巴大学">University of Manitoba</div>
+                    <div class="date" data-en="Spring/Summer 2018" data-zh="2018年春/夏季">Spring/Summer 2018</div>
+                    <p data-en="Assisted in developing machine learning models to improve the accuracy of structural health assessments, gaining early experience in applying computational methods to civil engineering problems." data-zh="协助开发机器学习模型以提高结构健康评估的准确性，在将计算方法应用于土木工程问题方面获得早期经验。">Assisted in developing machine learning models to improve the accuracy of structural health assessments, gaining early experience in applying computational methods to civil engineering problems.</p>
                 </div>
             </section>
 
             <section id="publications" class="section">
-                <h2>Publications</h2>
+                <h2 data-en="Publications" data-zh="学术发表">Publications</h2>
                 <div class="publication-item">
                     <h4>Multi-Bridge Inference Structural Health Monitoring (MISHM): A Drive-By Crowdsensing Approach at the Network Level</h4>
                     <div class="authors">J. Zeng, Q. Mei, and M. Gül</div>
                     <div class="venue">Submitted to Structural Health Monitoring, 2025</div>
-                    <p>This paper presents a novel framework for monitoring multiple bridges simultaneously using crowdsensing technologies and drive-by measurements.</p>
+                    <p data-en="This paper presents a novel framework for monitoring multiple bridges simultaneously using crowdsensing technologies and drive-by measurements." data-zh="本文提出了一种利用群体感知技术和过车测量同时监测多座桥梁的新框架。">This paper presents a novel framework for monitoring multiple bridges simultaneously using crowdsensing technologies and drive-by measurements.</p>
                 </div>
                 <div class="publication-item">
                     <h4>Multi-Bridge Indirect Structural Health Monitoring: Leveraging Big Data and Drive-By Crowdsensing Techniques</h4>
                     <div class="authors">J. Zeng, Q. Mei, and M. Gül</div>
                     <div class="venue">Topics in Modal Analysis & Parameter Identification, Vol. 9, Conference Proceedings of the Society for Experimental Mechanics Series</div>
-                    <p>Conference proceedings paper discussing the application of big data techniques in bridge monitoring using indirect measurement approaches.</p>
+                    <p data-en="Conference proceedings paper discussing the application of big data techniques in bridge monitoring using indirect measurement approaches." data-zh="会议论文，讨论了在使用间接测量方法的桥梁监测中应用大数据技术。">Conference proceedings paper discussing the application of big data techniques in bridge monitoring using indirect measurement approaches.</p>
                 </div>
                 <div class="publication-item">
                     <h4>An imaging-based artificial neural network method to identify the international roughness index of highway pavements</h4>
                     <div class="authors">J. Zeng, M. Gül, Q. Mei</div>
                     <div class="venue">Journal of Infrastructure Intelligence and Resilience, Volume 1, Issue 1, 2022</div>
-                    <p>This study presents a novel approach to assess pavement roughness using imaging techniques and artificial neural networks.</p>
+                    <p data-en="This study presents a novel approach to assess pavement roughness using imaging techniques and artificial neural networks." data-zh="本研究提出了一种利用成像技术和人工神经网络评估路面粗糙度的新方法。">This study presents a novel approach to assess pavement roughness using imaging techniques and artificial neural networks.</p>
                 </div>
                 <div class="publication-item">
                     <h4>Deep learning-based crack detection in a concrete tunnel structure using multispectral dynamic imaging</h4>
                     <div class="authors">R. Ali, J. Zeng, Y. J. Cha</div>
                     <div class="venue">Proc. SPIE 11382, Smart Structures and NDE for Industry 4.0, 2020</div>
-                    <p>Application of deep learning techniques for automated crack detection in concrete tunnel structures using advanced imaging methods.</p>
+                    <p data-en="Application of deep learning techniques for automated crack detection in concrete tunnel structures using advanced imaging methods." data-zh="应用深度学习技术和先进成像方法对混凝土隧道结构进行自动裂缝检测。">Application of deep learning techniques for automated crack detection in concrete tunnel structures using advanced imaging methods.</p>
                 </div>
                 <div class="publication-item">
                     <h4>Heat loss detection using thermal imaging by a small UAV prototype</h4>
                     <div class="authors">R. Ali, J. Zeng, M. Kavgic, Y. J. Cha</div>
                     <div class="venue">Proc. SPIE 11382, Smart Structures and NDE for Industry 4.0, 2020</div>
-                    <p>Investigation of thermal imaging applications using unmanned aerial vehicles for building energy efficiency assessment.</p>
+                    <p data-en="Investigation of thermal imaging applications using unmanned aerial vehicles for building energy efficiency assessment." data-zh="研究使用无人驾驶飞行器进行热成像应用，用于建筑能效评估。">Investigation of thermal imaging applications using unmanned aerial vehicles for building energy efficiency assessment.</p>
                 </div>
             </section>
 
             <section id="teaching" class="section">
-                <h2>Teaching Experience</h2>
+                <h2 data-en="Teaching Experience" data-zh="教学经历">Teaching Experience</h2>
                 <div class="experience-item">
-                    <h3>Teaching Assistant</h3>
-                    <div class="institution">Department of Civil Engineering, University of Alberta</div>
-                    <div class="date">September 2020 – Present</div>
-                    <p><strong>Courses:</strong> Civ E 130 (Present), Civ E 270, Civ E 265, Civ E 398, Civ E 779</p>
-                    <p>Assisted with various undergraduate and graduate courses, providing student support, grading assignments, and conducting tutorial sessions.</p>
+                    <h3 data-en="Teaching Assistant" data-zh="助教">Teaching Assistant</h3>
+                    <div class="institution" data-en="Department of Civil Engineering, University of Alberta" data-zh="阿尔伯塔大学土木工程系">Department of Civil Engineering, University of Alberta</div>
+                    <div class="date" data-en="September 2020 – Present" data-zh="2020年9月 – 至今">September 2020 – Present</div>
+                    <p><strong data-en="Courses:" data-zh="课程：">Courses:</strong> Civ E 130 (<span data-en="Present" data-zh="目前">Present</span>), Civ E 270, Civ E 265, Civ E 398, Civ E 779</p>
+                    <p data-en="Assisted with various undergraduate and graduate courses, providing student support, grading assignments, and conducting tutorial sessions." data-zh="协助各种本科和研究生课程，提供学生支持、批改作业和进行辅导课程。">Assisted with various undergraduate and graduate courses, providing student support, grading assignments, and conducting tutorial sessions.</p>
                 </div>
                 <div class="experience-item">
-                    <h3>Lab Instructor</h3>
-                    <div class="institution">Department of Civil Engineering, University of Alberta</div>
-                    <div class="date">January 2021 – Present</div>
-                    <p><strong>Course:</strong> Civ E 270 - Mechanics of Deformable Bodies</p>
-                    <p>Conducted laboratory sessions, demonstrating the practical applications of theoretical concepts in mechanics of materials and structural analysis.</p>
+                    <h3 data-en="Lab Instructor" data-zh="实验课教师">Lab Instructor</h3>
+                    <div class="institution" data-en="Department of Civil Engineering, University of Alberta" data-zh="阿尔伯塔大学土木工程系">Department of Civil Engineering, University of Alberta</div>
+                    <div class="date" data-en="January 2021 – Present" data-zh="2021年1月 – 至今">January 2021 – Present</div>
+                    <p><strong data-en="Course:" data-zh="课程：">Course:</strong> <span data-en="Civ E 270 - Mechanics of Deformable Bodies" data-zh="Civ E 270 - 可变形体力学">Civ E 270 - Mechanics of Deformable Bodies</span></p>
+                    <p data-en="Conducted laboratory sessions, demonstrating the practical applications of theoretical concepts in mechanics of materials and structural analysis." data-zh="主持实验课程，演示材料力学和结构分析理论概念的实际应用。">Conducted laboratory sessions, demonstrating the practical applications of theoretical concepts in mechanics of materials and structural analysis.</p>
                 </div>
             </section>
 
             <section id="gallery" class="section">
-                <h2>Photo Gallery</h2>
-                <p>A collection of photos from my teaching, research, and conference activities.</p>
+                <h2 data-en="Photo Gallery" data-zh="图片展示">Photo Gallery</h2>
+                <p data-en="A collection of photos from my teaching, research, and conference activities." data-zh="我的教学、研究和会议活动照片集锦。">A collection of photos from my teaching, research, and conference activities.</p>
                 <div class="gallery-grid">
                     <div class="gallery-item">
                         <img src="assets/images/teaching-lecture.jpg" alt="Teaching Linear Algebra">
                         <div class="gallery-caption">
-                            <h4>Teaching Linear Algebra</h4>
-                            <p>Presenting matrix determinants and invertibility concepts to undergraduate students.</p>
+                            <h4 data-en="Teaching Linear Algebra" data-zh="教授线性代数">Teaching Linear Algebra</h4>
+                            <p data-en="Presenting matrix determinants and invertibility concepts to undergraduate students." data-zh="向本科学生讲解矩阵行列式和可逆性概念。">Presenting matrix determinants and invertibility concepts to undergraduate students.</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="assets/images/teaching-classroom.jpg" alt="Classroom Lecture">
                         <div class="gallery-caption">
-                            <h4>Classroom Instruction</h4>
-                            <p>Engaging with students during a mathematics lecture at University of Alberta.</p>
+                            <h4 data-en="Classroom Instruction" data-zh="课堂教学">Classroom Instruction</h4>
+                            <p data-en="Engaging with students during a mathematics lecture at University of Alberta." data-zh="在阿尔伯塔大学数学课堂上与学生互动。">Engaging with students during a mathematics lecture at University of Alberta.</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="assets/images/lab-assistance.jpg" alt="Lab Instruction">
                         <div class="gallery-caption">
-                            <h4>Laboratory Instruction</h4>
-                            <p>Providing hands-on guidance to students during engineering lab sessions.</p>
+                            <h4 data-en="Laboratory Instruction" data-zh="实验指导">Laboratory Instruction</h4>
+                            <p data-en="Providing hands-on guidance to students during engineering lab sessions." data-zh="在工程实验课程中为学生提供实践指导。">Providing hands-on guidance to students during engineering lab sessions.</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="assets/images/conference-presentation.jpg" alt="Conference Presentation">
                         <div class="gallery-caption">
-                            <h4>Research Presentation</h4>
-                            <p>Presenting research findings at an academic conference on structural health monitoring.</p>
+                            <h4 data-en="Research Presentation" data-zh="研究报告">Research Presentation</h4>
+                            <p data-en="Presenting research findings at an academic conference on structural health monitoring." data-zh="在结构健康监测学术会议上展示研究成果。">Presenting research findings at an academic conference on structural health monitoring.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section id="achievements" class="section">
-                <h2>Achievements & Awards</h2>
-                <div class="achievement-item">
+                <h2 data-en="Achievements & Awards" data-zh="荣誉奖项">Achievements & Awards</h2>
+                <div class="achievement-item" data-en="Alberta Innovates Graduate Student Scholarship (2024-2025)" data-zh="阿尔伯塔创新研究生奖学金 (2024-2025)">
                     Alberta Innovates Graduate Student Scholarship (2024-2025)
                 </div>
-                <div class="achievement-item">
+                <div class="achievement-item" data-en="Graduate Research Award, University of Alberta (2024)" data-zh="阿尔伯塔大学研究生研究奖 (2024)">
                     Graduate Research Award, University of Alberta (2024)
                 </div>
-                <div class="achievement-item">
+                <div class="achievement-item" data-en="Graduate Teaching Awards, University of Alberta (2021-2023)" data-zh="阿尔伯塔大学研究生教学奖 (2021-2023)">
                     Graduate Teaching Awards, University of Alberta (2021-2023)
                 </div>
-                <div class="achievement-item">
+                <div class="achievement-item" data-en="China Scholarship Council Scholarship (2022-2025)" data-zh="国家留学基金委奖学金 (2022-2025)">
                     China Scholarship Council Scholarship (2022-2025)
                 </div>
-                <div class="achievement-item">
+                <div class="achievement-item" data-en="International Undergraduate Student Scholarship, University of Manitoba (2016-2019)" data-zh="曼尼托巴大学国际本科生奖学金 (2016-2019)">
                     International Undergraduate Student Scholarship, University of Manitoba (2016-2019)
                 </div>
             </section>
 
             <section id="skills" class="section">
-                <h2>Technical Skills</h2>
+                <h2 data-en="Technical Skills" data-zh="技能专长">Technical Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h3>Programming Languages</h3>
+                        <h3 data-en="Programming Languages" data-zh="编程语言">Programming Languages</h3>
                         <div class="skill-tags">
                             <span class="skill-tag">Python</span>
                             <span class="skill-tag">MATLAB</span>
@@ -691,7 +704,7 @@
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Engineering Software</h3>
+                        <h3 data-en="Engineering Software" data-zh="工程软件">Engineering Software</h3>
                         <div class="skill-tags">
                             <span class="skill-tag">AutoCAD</span>
                             <span class="skill-tag">Abaqus</span>
@@ -699,51 +712,51 @@
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Data Analysis & ML</h3>
+                        <h3 data-en="Data Analysis & ML" data-zh="数据分析与机器学习">Data Analysis & ML</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Big Data Analysis</span>
-                            <span class="skill-tag">Machine Learning</span>
-                            <span class="skill-tag">Computer Vision</span>
-                            <span class="skill-tag">Signal Processing</span>
+                            <span class="skill-tag" data-en="Big Data Analysis" data-zh="大数据分析">Big Data Analysis</span>
+                            <span class="skill-tag" data-en="Machine Learning" data-zh="机器学习">Machine Learning</span>
+                            <span class="skill-tag" data-en="Computer Vision" data-zh="计算机视觉">Computer Vision</span>
+                            <span class="skill-tag" data-en="Signal Processing" data-zh="信号处理">Signal Processing</span>
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Research Areas</h3>
+                        <h3 data-en="Research Areas" data-zh="研究领域">Research Areas</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Structural Health Monitoring</span>
-                            <span class="skill-tag">Crowdsensing</span>
-                            <span class="skill-tag">Infrastructure Management</span>
+                            <span class="skill-tag" data-en="Structural Health Monitoring" data-zh="结构健康监测">Structural Health Monitoring</span>
+                            <span class="skill-tag" data-en="Crowdsensing" data-zh="群体感知">Crowdsensing</span>
+                            <span class="skill-tag" data-en="Infrastructure Management" data-zh="基础设施管理">Infrastructure Management</span>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section id="contact" class="section">
-                <h2>Contact Information</h2>
+                <h2 data-en="Contact Information" data-zh="联系方式">Contact Information</h2>
                 <div class="about-grid">
                     <div>
-                        <h3>Office Address</h3>
-                        <p>Department of Civil Engineering<br>
-                        University of Alberta<br>
-                        Edmonton, Alberta<br>
-                        Canada</p>
+                        <h3 data-en="Office Address" data-zh="办公地址">Office Address</h3>
+                        <p><span data-en="Department of Civil Engineering" data-zh="土木工程系">Department of Civil Engineering</span><br>
+                        <span data-en="University of Alberta" data-zh="阿尔伯塔大学">University of Alberta</span><br>
+                        <span data-en="Edmonton, Alberta" data-zh="阿尔伯塔省埃德蒙顿">Edmonton, Alberta</span><br>
+                        <span data-en="Canada" data-zh="加拿大">Canada</span></p>
 
-                        <h3 style="margin-top: 2rem;">Email</h3>
+                        <h3 style="margin-top: 2rem;" data-en="Email" data-zh="电子邮箱">Email</h3>
                         <p>jiangyu1@ualberta.ca</p>
 
-                        <h3 style="margin-top: 2rem;">Phone</h3>
+                        <h3 style="margin-top: 2rem;" data-en="Phone" data-zh="电话">Phone</h3>
                         <p>+1 (204) 869-7738</p>
                     </div>
                     <div>
-                        <h3>Professional Activities</h3>
-                        <p><strong>Volunteer Experience:</strong></p>
+                        <h3 data-en="Professional Activities" data-zh="专业活动">Professional Activities</h3>
+                        <p><strong data-en="Volunteer Experience:" data-zh="志愿服务经历：">Volunteer Experience:</strong></p>
                         <ul style="margin-top: 1rem;">
-                            <li>Orientation Ceremony Volunteer, Civil Engineering, University of Alberta (September 2023)</li>
-                            <li>Mentor, Mentor and Mentee Program, University of Manitoba (2018 Academic Year)</li>
+                            <li data-en="Orientation Ceremony Volunteer, Civil Engineering, University of Alberta (September 2023)" data-zh="阿尔伯塔大学土木工程系迎新典礼志愿者 (2023年9月)">Orientation Ceremony Volunteer, Civil Engineering, University of Alberta (September 2023)</li>
+                            <li data-en="Mentor, Mentor and Mentee Program, University of Manitoba (2018 Academic Year)" data-zh="曼尼托巴大学导师项目导师 (2018学年)">Mentor, Mentor and Mentee Program, University of Manitoba (2018 Academic Year)</li>
                         </ul>
                         
-                        <h3 style="margin-top: 2rem;">Research Collaborations</h3>
-                        <p>Active collaboration with interdisciplinary teams integrating crowdsensing technologies with traditional structural monitoring approaches.</p>
+                        <h3 style="margin-top: 2rem;" data-en="Research Collaborations" data-zh="研究合作">Research Collaborations</h3>
+                        <p data-en="Active collaboration with interdisciplinary teams integrating crowdsensing technologies with traditional structural monitoring approaches." data-zh="积极与跨学科团队合作，将群体感知技术与传统结构监测方法相结合。">Active collaboration with interdisciplinary teams integrating crowdsensing technologies with traditional structural monitoring approaches.</p>
                     </div>
                 </div>
             </section>
@@ -752,13 +765,9 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Jiangyu Zeng. All rights reserved.</p>
+            <p data-en="&copy; 2025 Jiangyu Zeng. All rights reserved." data-zh="&copy; 2025 曾江雨。保留所有权利。">&copy; 2025 Jiangyu Zeng. All rights reserved.</p>
             <div class="social-links">
-                <a href="mailto:jiangyu1@ualberta.ca">Email</a>
-                <!--
-                <a href="#">Google Scholar</a>
-                <a href="#">ResearchGate</a>
-                -->
+                <a href="mailto:jiangyu1@ualberta.ca" data-en="Email" data-zh="邮箱">Email</a>
                 <a href="https://www.linkedin.com/in/jiangyu-zeng-0a4a76204/"
                    target="_blank" rel="noopener">LinkedIn</a>
             </div>
@@ -766,12 +775,14 @@
     </footer>
 
     <script>
-        // Dark mode toggle functionality
+        // Dark mode and language toggle functionality
         const darkModeToggle = document.getElementById('darkModeToggle');
+        const languageToggle = document.getElementById('languageToggle');
         const body = document.body;
         let isDarkMode = false;
+        let currentLanguage = 'en'; // Default to English
 
-        // Initialize theme
+        // Initialize theme and language
         function initializeTheme() {
             // Check for saved theme preference or default to light mode
             const savedTheme = getCookie('theme');
@@ -780,20 +791,68 @@
             } else {
                 enableLightMode();
             }
+
+            // Check for saved language preference or default to English
+            const savedLanguage = getCookie('language');
+            if (savedLanguage === 'zh') {
+                switchToLanguage('zh');
+            } else {
+                switchToLanguage('en');
+            }
         }
 
         function enableDarkMode() {
             body.setAttribute('data-theme', 'dark');
-            darkModeToggle.innerHTML = '<span class="icon">☀️</span><span class="text">Light Mode</span>';
+            updateDarkModeToggleText();
             isDarkMode = true;
             setCookie('theme', 'dark', 365);
         }
 
         function enableLightMode() {
             body.removeAttribute('data-theme');
-            darkModeToggle.innerHTML = '<span class="icon">🌙</span><span class="text">Dark Mode</span>';
+            updateDarkModeToggleText();
             isDarkMode = false;
             setCookie('theme', 'light', 365);
+        }
+
+        function updateDarkModeToggleText() {
+            const darkModeText = darkModeToggle.querySelector('.text');
+            const icon = darkModeToggle.querySelector('.icon');
+            if (isDarkMode) {
+                icon.textContent = '☀️';
+                darkModeText.textContent = currentLanguage === 'zh' ? '浅色模式' : 'Light Mode';
+            } else {
+                icon.textContent = '🌙';
+                darkModeText.textContent = currentLanguage === 'zh' ? '深色模式' : 'Dark Mode';
+            }
+        }
+
+        function switchToLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update all elements with data-en and data-zh attributes
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            elements.forEach(element => {
+                if (lang === 'zh') {
+                    element.textContent = element.getAttribute('data-zh');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+
+            // Update language toggle button
+            const languageText = languageToggle.querySelector('.text');
+            if (lang === 'zh') {
+                languageText.textContent = 'EN';
+            } else {
+                languageText.textContent = '中文';
+            }
+
+            // Update dark mode toggle text to match current language
+            updateDarkModeToggleText();
+
+            // Save language preference
+            setCookie('language', lang, 365);
         }
 
         // Simple cookie functions (alternative to localStorage)
@@ -823,7 +882,16 @@
             }
         });
 
-        // Initialize theme on page load
+        // Toggle language
+        languageToggle.addEventListener('click', () => {
+            if (currentLanguage === 'en') {
+                switchToLanguage('zh');
+            } else {
+                switchToLanguage('en');
+            }
+        });
+
+        // Initialize theme and language on page load
         initializeTheme();
 
         // Smooth scrolling for navigation links
