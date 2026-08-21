@@ -110,10 +110,11 @@
       margin-top: 18px;
     }
 
-    /* Sidebar */
+    /* Sidebar: same document scroll as the main column. Sticky kept it
+       pinned until the right column was fully scrolled, so Jump to only
+       moved after the publications had already gone by. */
     .side{
-      position: sticky;
-      top: 72px;
+      position: static;
     }
 
     .card{
@@ -406,7 +407,6 @@
     /* Responsive */
     @media (max-width: 960px){
       .grid{grid-template-columns: 1fr;}
-      .side{position: static;}
       .about-grid{grid-template-columns: 1fr;}
       .linkgrid{grid-template-columns: 1fr 1fr;}
     }
