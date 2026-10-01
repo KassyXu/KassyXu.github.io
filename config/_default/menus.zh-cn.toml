@@ -1,0 +1,41 @@
+# -- 主菜单 --
+[[main]]
+  name = "学术发表"
+  pageRef = "publications"
+  weight = 10
+
+[[main]]
+  name = "经历"
+  pageRef = "experience"
+  weight = 20
+
+[[main]]
+  name = "图片展示"
+  pageRef = "gallery"
+  weight = 30
+
+[[main]]
+  name = "VBI-ChatGPT"
+  url = "/vbi.html"
+  weight = 40
+
+[[main]]
+  name = "联系方式"
+  pageRef = "contact"
+  weight = 50
+
+# -- 页脚菜单 --
+[[footer]]
+  name = "ORCID"
+  url = "https://orcid.org/0000-0001-5916-8981"
+  weight = 10
+
+[[footer]]
+  name = "LinkedIn"
+  url = "https://www.linkedin.com/in/jiangyu-zeng-0a4a76204/"
+  weight = 20
+
+[[footer]]
+  name = "图片来源"
+  url = "/zh-cn/contact/#图片来源"
+  weight = 30

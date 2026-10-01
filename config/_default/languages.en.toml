@@ -1,0 +1,24 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 1
+title = "Jiangyu Zeng"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "January 2006"
+  description = "Jiangyu Zeng — Ph.D. in Civil Engineering, University of Alberta. Bridge structural health monitoring, drive-by crowdsensing and big data analytics."
+  copyright = "© 2026 Jiangyu Zeng. All rights reserved."
+
+[params.author]
+  name = "Jiangyu Zeng"
+  image = "img/jiangyu-profile.jpg"
+  headline = "Ph.D. in Civil Engineering · University of Alberta"
+  bio = "Bridge structural health monitoring, drive-by crowdsensing and big data analytics."
+  links = [
+    { email = "mailto:jiangyu1@ualberta.ca" },
+    { orcid = "https://orcid.org/0000-0001-5916-8981" },
+    { linkedin = "https://www.linkedin.com/in/jiangyu-zeng-0a4a76204/" },
+  ]

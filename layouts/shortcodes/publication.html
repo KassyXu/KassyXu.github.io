@@ -1,0 +1,26 @@
+{{- /*
+  One publication card.
+  Usage:
+    {{< publication title="..." authors="J. Zeng, ..." venue="*Journal*, 2025" doi="10.xxxx/yyyy" >}}
+    One-sentence summary (Markdown).
+    {{< /publication >}}
+  "J. Zeng" in the author list is bolded automatically.
+*/ -}}
+{{- $authors := .Get "authors" | htmlEscape | replaceRE `(J\. Zeng)` `<strong>$1</strong>` -}}
+<div class="publication">
+  <h3 class="publication-title">{{ .Get "title" }}</h3>
+  <p class="publication-authors">{{ $authors | safeHTML }}</p>
+  {{- with .Get "venue" }}
+  <p class="publication-venue">{{ . | markdownify }}</p>
+  {{- end }}
+  {{- with .Inner }}
+  <p class="publication-summary">{{ . | strings.TrimSpace | markdownify }}</p>
+  {{- end }}
+  {{- with .Get "doi" }}
+  <p class="publication-links">
+    <a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">
+      <span class="publication-icon">{{ partial "icon.html" "link" }}</span>DOI: {{ . }}
+    </a>
+  </p>
+  {{- end }}
+</div>

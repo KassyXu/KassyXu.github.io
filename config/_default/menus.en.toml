@@ -1,0 +1,41 @@
+# -- Main Menu --
+[[main]]
+  name = "Publications"
+  pageRef = "publications"
+  weight = 10
+
+[[main]]
+  name = "Experience"
+  pageRef = "experience"
+  weight = 20
+
+[[main]]
+  name = "Gallery"
+  pageRef = "gallery"
+  weight = 30
+
+[[main]]
+  name = "VBI-ChatGPT"
+  url = "/vbi.html"
+  weight = 40
+
+[[main]]
+  name = "Contact"
+  pageRef = "contact"
+  weight = 50
+
+# -- Footer Menu --
+[[footer]]
+  name = "ORCID"
+  url = "https://orcid.org/0000-0001-5916-8981"
+  weight = 10
+
+[[footer]]
+  name = "LinkedIn"
+  url = "https://www.linkedin.com/in/jiangyu-zeng-0a4a76204/"
+  weight = 20
+
+[[footer]]
+  name = "Photo credits"
+  url = "/contact/#photo-credits"
+  weight = 30

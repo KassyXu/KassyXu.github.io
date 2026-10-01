@@ -1,0 +1,280 @@
+/* Site-specific additions on top of the Blowfish theme. */
+
+/* Profile homepage: keep the header centred but let body text read left-aligned. */
+article.text-center > section.prose {
+  text-align: left;
+  max-width: 48rem;
+}
+
+.tag-row,
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1.25rem;
+}
+.btn-row {
+  gap: 0.75rem;
+}
+
+/* Publication cards */
+.publication {
+  margin: 1rem 0 1.25rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgb(var(--color-neutral-200));
+  border-left: 4px solid rgb(var(--color-primary-500));
+  border-radius: 0.5rem;
+}
+.dark .publication {
+  border-color: rgb(var(--color-neutral-700));
+  border-left-color: rgb(var(--color-primary-400));
+}
+.prose .publication-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+.prose .publication .publication-authors,
+.prose .publication .publication-venue,
+.prose .publication .publication-summary,
+.prose .publication .publication-links {
+  margin: 0.2rem 0;
+}
+.publication-authors,
+.publication-venue {
+  font-size: 0.95rem;
+  color: rgb(var(--color-neutral-600));
+}
+.dark .publication-authors,
+.dark .publication-venue {
+  color: rgb(var(--color-neutral-400));
+}
+.publication-summary {
+  font-size: 0.95rem;
+}
+.publication-links {
+  font-size: 0.9rem;
+}
+.publication-icon {
+  display: inline-block;
+  margin-right: 0.3rem;
+  vertical-align: -0.1em;
+}
+
+/* Gallery captions */
+.gallery figure figcaption {
+  font-size: 0.9rem;
+}
+
+/* Timeline: keep the date badge on one line; it moves below the heading when space runs out. */
+ol.border-s-2 > li .flex.justify-between {
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.75rem;
+}
+ol.border-s-2 > li .flex.justify-between > h3 {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ===================================================================
+   Motion
+   =================================================================== */
+
+/* Page-to-page cross-fade (browsers with cross-document View Transitions). */
+@view-transition {
+  navigation: auto;
+}
+header > .fixed {
+  view-transition-name: site-header;
+}
+::view-transition-old(root) {
+  animation: vt-out 0.22s ease both;
+}
+::view-transition-new(root) {
+  animation: vt-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes vt-out {
+  to { opacity: 0; transform: translateY(-8px); }
+}
+@keyframes vt-in {
+  from { opacity: 0; transform: translateY(14px); }
+}
+
+/* Scroll reveal (classes added by assets/js/motion.js). */
+html.motion .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+html.motion .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Slow drift on banner photos. */
+#landing-hero-background img,
+#hero-background img {
+  animation: ken-burns 26s ease-out both;
+  transform-origin: 50% 40%;
+}
+@keyframes ken-burns {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+
+/* Cards lift on hover. */
+.publication {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.publication:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px -12px rgba(15, 23, 42, 0.25);
+}
+
+/* Reduced motion: keep gentle fades, drop movement and zoom. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root) {
+    animation: vt-fade-out 0.2s ease both;
+  }
+  ::view-transition-new(root) {
+    animation: vt-fade-in 0.35s ease both;
+  }
+  #landing-hero-background img,
+  #hero-background img {
+    animation: none;
+  }
+  html.motion .reveal {
+    transform: none;
+    transition: opacity 0.6s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .publication,
+  .publication:hover {
+    transition: none;
+    transform: none;
+  }
+}
+@keyframes vt-fade-out {
+  to { opacity: 0; }
+}
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+}
+
+/* ===================================================================
+   Homepage hero: night photo with light text
+   =================================================================== */
+
+#landing-hero-background {
+  height: 100vh;
+  min-height: 640px;
+}
+#landing-hero-background > div {
+  /* Dark at the top for the title, fading into the page colour at the bottom. */
+  background: linear-gradient(
+    180deg,
+    rgba(6, 10, 20, 0.62) 0%,
+    rgba(6, 10, 20, 0.45) 55%,
+    rgb(var(--color-neutral)) 100%
+  );
+}
+.dark #landing-hero-background > div {
+  background: linear-gradient(
+    180deg,
+    rgba(6, 10, 20, 0.62) 0%,
+    rgba(6, 10, 20, 0.5) 55%,
+    rgb(var(--color-neutral-800)) 100%
+  );
+}
+article.isolate > section {
+  padding-top: max(9vh, 4rem);
+}
+article.isolate .landing-rise:not(.landing-rise-4) {
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+article.isolate p.landing-rise:first-child {
+  color: rgba(255, 255, 255, 0.82);
+}
+article.isolate p.landing-rise-2 {
+  color: rgba(255, 255, 255, 0.88);
+}
+/* Push the page content below the photo. */
+article.isolate .landing-rise-4 {
+  margin-top: max(30vh, 12rem);
+}
+article.isolate .landing-rise-4 h2 {
+  text-align: center;
+  margin-top: 3.5rem;
+}
+article.isolate .landing-rise-4 > p {
+  text-align: left;
+}
+
+/* Header text is light while it floats over the photo, dark once the bar fills in. */
+body:has(#landing-hero-background) header > .fixed a,
+body:has(#landing-hero-background) header > .fixed button,
+body:has(#landing-hero-background) header > .fixed span {
+  transition: color 0.3s ease;
+}
+html:not(.scrolled) body:has(#landing-hero-background) header > .fixed a,
+html:not(.scrolled) body:has(#landing-hero-background) header > .fixed button,
+html:not(.scrolled) body:has(#landing-hero-background) header > .fixed span {
+  color: #fff;
+}
+
+/* ===================================================================
+   Homepage blocks
+   =================================================================== */
+
+.btn-row-center {
+  justify-content: center;
+}
+.showcase-shot {
+  border-radius: 0.9rem;
+  box-shadow: 0 30px 60px -20px rgba(15, 23, 42, 0.45);
+}
+/* Keep the Walterdale arch (lower part of the photo) in frame. */
+#landing-hero-background img {
+  object-position: 50% 78%;
+}
+
+/* ===================================================================
+   Desktop balance: centre the reading column on inner pages
+   =================================================================== */
+
+@media (min-width: 1024px) {
+  :root {
+    --page-col: 52rem;
+    --toc-col: 13rem;
+    --toc-gap: 3rem;
+  }
+  #single_header {
+    max-width: var(--page-col);
+    margin-inline: auto;
+  }
+  #single_header ~ section.prose {
+    justify-content: center;
+  }
+  #single_header ~ section.prose > .min-w-0 {
+    flex: 0 1 var(--page-col);
+    max-width: var(--page-col);
+  }
+  #single_header ~ section.prose .article-content {
+    max-width: none;
+  }
+  /* Pages with a table of contents: centre content + TOC as one group. */
+  article:has(.toc) #single_header {
+    max-width: calc(var(--page-col) + var(--toc-gap) + var(--toc-col));
+  }
+  #single_header ~ section.prose > .order-first {
+    margin-inline-start: var(--toc-gap);
+    padding-inline-start: 0;
+    flex: 0 0 var(--toc-col);
+    max-width: var(--toc-col);
+  }
+}
