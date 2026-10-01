@@ -1,5 +1,6 @@
 # Build the Hugo site and deploy it to GitHub Pages.
-# Repo setting required once: Settings → Pages → Build and deployment → Source = "GitHub Actions".
+# Repo settings required once: Settings → Pages → Source = "GitHub Actions",
+# and Custom domain = www.jiangyuzeng.com (the CNAME file is not used by Actions deploys).
 name: Deploy Hugo site to Pages
 
 on:
@@ -41,9 +42,11 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      # baseURL comes from config/_default/hugo.toml (the custom domain), so the
+      # build does not depend on the Pages custom-domain setting.
       - name: Build with Hugo
         run: |
-          hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+          hugo --gc --minify
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
